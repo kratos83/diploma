@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/dialog-close.png</file>
+        <file>images/document-preview.png</file>
+        <file>images/document-print.png</file>
+        <file>images/document-save.png</file>
+        <file>images/excel.png</file>
+        <file>images/logo_stato.png</file>
+        <file>images/screen.png</file>
+        <file>images/system-users.png</file>
+        <file>images/scuola.png</file>
+        <file>images/svn_status.png</file>
+        <file>images/system-software-update.png</file>
+        <file>images/edit-delete.png</file>
+        <file>images/dialog-ok-apply.png</file>
+        <file>images/calendario.png</file>
+        <file>font/Algerian.TTF</file>
+        <file>font/Book Antiqua Regular.ttf</file>
+        <file>font/ITCBLKAD.TTF</file>
+        <file>font/OpenSans.ttf</file>
+        <file>font/Avalon Medium.ttf</file>
+	<file>images/diploma.png</file>
+    </qresource>
+</RCC>

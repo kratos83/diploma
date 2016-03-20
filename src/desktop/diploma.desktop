@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Application;Office
+Comment[it]=Software per la stampa dei diplomi
+Comment=Software per la stampa dei diplomi
+Encoding=UTF-8
+Exec=/opt/diploma/diploma
+GenericName[it]=
+GenericName=
+Icon=/opt/diploma/diploma.png
+MimeType=
+Name[it]=Diploma
+Name=Diploma
+Name[it_IT]=Diploma
+Path=/opt/diploma
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
