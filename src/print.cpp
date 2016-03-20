@@ -10,22 +10,9 @@
 
 print::print()
 {
-    // Creazione oggetto printer (puntatore)
-    // ed impostazioni varie sul formato pagina, nome file di appoggio
-    // formato file prodotto
-    // impostazione margine e risoluzione
     printer = new QPrinter(QPrinter::HighResolution);
-            // Formato A4 = 210*297 millimetri
-            // Formato A4 = 210*297 millimetri
-
     printer->setPageMargins(15.0,15.0,15.0,15.0,QPrinter::Millimeter);
     printer->setPaperSize(QPrinter::A4);
-    #if defined (Q_OS_LINUX) || defined (Q_OS_UNIX)
-    printer->setOutputFormat(QPrinter::PdfFormat);
-    #endif
-    #ifdef Q_OS_MAC
-    printer->setOutputFormat(QPrinter::PdfFormat);
-    #endif
     printer->setResolution(254);
     stampaDlg = new QPrintDialog();
     stampaDlg->setEnabledOptions(QAbstractPrintDialog::PrintPageRange);

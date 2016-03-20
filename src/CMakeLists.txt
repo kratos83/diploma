@@ -132,6 +132,10 @@ IF(WIN32)
 		"${MINGW_PREFIX}/lib/qt5/plugins/platforms/qwindows.dll"
 		DESTINATION ./platforms
 		)
+	INSTALL(FILES 
+		"${MINGW_PREFIX}/lib/qt5/plugins/printsupport/windowsprintersupport.dll" 
+		DESTINATION ./printsupport
+		)
 ELSE()
     INSTALL( TARGETS diploma RUNTIME DESTINATION /opt/diploma)
     INSTALL( FILES "images/diploma.png" DESTINATION /opt/diploma)

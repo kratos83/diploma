@@ -130,6 +130,7 @@ void alunni::stampa()
     }
     else{
             QPrinter *printer = new QPrinter(QPrinter::HighResolution);
+	    printer->setOutputFormat(QPrinter::NativeFormat);
             QPrintPreviewDialog *preview = new QPrintPreviewDialog(printer,this);
             preview->setWindowFlags(Qt::Window);
             connect(preview,SIGNAL(paintRequested(QPrinter*)),SLOT(anteprima(QPrinter*)));
