@@ -3,6 +3,9 @@
 #include "settingsmanager.h"
 #include <QDebug>
 #include "print.h"
+#include "../xlsx/xlsxdocument.h"
+
+using namespace QXlsx;
 
 alunni *m_alunni = 0;
 
@@ -40,6 +43,7 @@ void alunni::cerca()
         query.exec();
 
         if(query.next()){
+	    clear_text();
             ui->id->setText(query.value(0).toString());
             ui->nome->setText(query.value(1).toString());
             ui->cognome->setText(query.value(2).toString());
@@ -48,6 +52,17 @@ void alunni::cerca()
             ui->anno->addItem(query.value(5).toString());
             ui->plesso->addItem(query.value(6).toString());
         }
+}
+
+void alunni::clear_text()
+{
+    ui->id->clear();
+    ui->nome->clear();
+    ui->cognome->clear();
+    ui->classe->clear();
+    ui->sezione->clear();
+    ui->anno->clear();
+    ui->plesso->clear();
 }
 
 void alunni::lista()
@@ -76,7 +91,7 @@ void alunni::open_excel()
 {
     QMessageBox *box= new QMessageBox(this);
     box->setWindowTitle(tr("Diploma"));
-    box->setText(tr("Il file csv\ndeve essere composto:\n"));
+    box->setText(tr("Il file excel\ndeve essere composto:\n"));
     box->setInformativeText(tr("Nome\nCognome\nClasse\nSezione\nAnno\nPlesso"));
     box->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
     box->setDefaultButton(QMessageBox::Ok);
@@ -96,29 +111,59 @@ void alunni::open_excel()
 
 void alunni::excel()
 {
-    QString filePath = QFileDialog::getOpenFileName(0, "Apri file csv", QString(), "*.csv");
+    
+    QString filePath = QFileDialog::getOpenFileName(0, "Apri file excel", QString(), "*.xlsx");
     if(filePath.isEmpty())
-        qDebug() << "Impossibile aprire il file";
-    QFile f(filePath);
-    if(f.open (QIODevice::ReadOnly)){
-        QSqlQuery query;
-        QTextStream ts (&f);
-        while(!ts.atEnd()){
-            QString req = "INSERT INTO alunni(nome,cognome,classe,sezione,anno,plesso) VALUES('";
-            QStringList line = ts.readLine().split(',');
-            for(int i=0; i<line.length();++i){
-                req.append(line.at(i));
-                req.append("','");
-            }
-            req.chop(2);
-            req.append(");");
-            query.prepare(req);
-            if(query.exec())
-                qDebug() <<  "Inserimento effettuato";
-            else
-                qDebug() <<  "Inserimento non effettuato(table::alunni): " << query.lastError().text();
-        }
-        f.close ();
+        QMessageBox::warning(this,"Diploma","Non hai aperto nesssun file");
+    else{
+    Document xlsx(filePath);
+        
+    for(int i=1; i <= xlsx.dimension().rowCount(); i++)
+    {
+      QProgressDialog progressDialog(this);
+      progressDialog.setRange(0, xlsx.dimension().rowCount());
+      progressDialog.setWindowModality(Qt::WindowModal);
+      progressDialog.setWindowTitle(tr("Inserimento alunni"));
+      progressDialog.setValue(i);
+      progressDialog.setLabelText(tr("Inserimento alunni %1 di %2...")
+                                    .arg(i).arg(xlsx.dimension().rowCount()));
+      qApp->processEvents();
+      QSqlQuery query;
+      QString req = "INSERT INTO alunni(nome,cognome,classe,sezione,anno,plesso) VALUES('";
+      if(Cell *name = xlsx.cellAt(i,1)){
+	 req.append(name->value().toString());
+	 req.append("','");
+      }
+      if(Cell *lastname = xlsx.cellAt(i,2)){
+	 req.append(lastname->value().toString());
+	 req.append("','");
+      }
+      if(Cell *cl = xlsx.cellAt(i,3)){
+	 req.append(cl->value().toString());
+	 req.append("','");
+      }
+      if(Cell *sez = xlsx.cellAt(i,4)){
+	 req.append(sez->value().toString());
+	 req.append("','");
+      }
+      if(Cell *year = xlsx.cellAt(i,5)){
+	 req.append(year->value().toString());
+	 req.append("','");
+      }
+      if(Cell *plexus = xlsx.cellAt(i,6)){
+	 req.append(plexus->value().toString());
+	 req.append("','");
+      }
+      req.chop(2);
+      req.append(");");
+      query.prepare(req);
+      progressDialog.show();
+      progressDialog.update();
+      if(query.exec())
+           qDebug() <<  "Inserimento effettuato";
+      else
+           qDebug() <<  "Inserimento non effettuato(table::alunni): " << query.lastError().text();  
+    }
     }
     lista();
 }

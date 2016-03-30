@@ -81,6 +81,7 @@ ELSE(WIN32)
 ENDIF(WIN32)
 
 # make sub-directories
+ADD_SUBDIRECTORY(xlsx)
 ADD_SUBDIRECTORY(src)
 
 #

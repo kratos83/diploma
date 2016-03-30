@@ -86,6 +86,7 @@ endif()
 
 
 target_link_libraries( diploma
+  xlsx_diploma
   Qt5::Widgets Qt5::Gui 
   Qt5::Sql Qt5::Core 
   Qt5::PrintSupport 

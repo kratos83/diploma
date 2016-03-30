@@ -27,6 +27,7 @@ public slots:
     void cerca();
     void stampa();
     void anteprima(QPrinter *printer);
+    void clear_text();
 private:
     Ui::alunni *ui;
     QSqlRelationalTableModel *model;

@@ -52,7 +52,7 @@
    <item row="1" column="2">
     <widget class="QPushButton" name="excel">
      <property name="text">
-      <string>Importa file csv</string>
+      <string>Importa file excel</string>
      </property>
      <property name="icon">
       <iconset resource="../images.qrc">
@@ -130,24 +130,10 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="4">
-       <widget class="QComboBox" name="anno">
-        <property name="editable">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
       <item row="6" column="1">
        <widget class="QLabel" name="label_7">
         <property name="text">
          <string>Plesso</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="4">
-       <widget class="QComboBox" name="plesso">
-        <property name="editable">
-         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -163,6 +149,20 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="6" column="3" colspan="2">
+       <widget class="QComboBox" name="plesso">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3" colspan="2">
+       <widget class="QComboBox" name="anno">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

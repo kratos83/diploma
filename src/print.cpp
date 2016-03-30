@@ -37,7 +37,7 @@ void print::rettangolo_diploma_logo()
     query.exec();
     if(query.next())
     {
-        QString intestazione = query.value(1).toString()+"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+
+        QString intestazione = query.value(1).toString()+"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+
                                query.value(2).toString()+" "+query.value(3).toString()+
                                " - "+query.value(4).toString()+", "+query.value(5).toString();
         int id = QFontDatabase::addApplicationFont(":/font/Book Antiqua Regular.ttf");
@@ -105,13 +105,11 @@ void print::pagina()
     painter->drawText(1800,1500,800,100,Qt::AlignLeft,"IL DIRIGENTE SCOLASTICO");
     painter->setFont(QFont(open,28,QFont::Bold,true));
     painter->drawText(800,1200,1000,300,Qt::AlignVCenter | Qt::AlignHCenter,"Congratulazioni");
-    int av = QFontDatabase::addApplicationFont(":/font/Avalon Medium.ttf");
-    QString av_f = QFontDatabase::applicationFontFamilies(av).at(0);
-    painter->setFont(QFont(av_f,40,true,true));
-    painter->drawText(900,650,800,200,Qt::AlignJustify | Qt::AlignJustify,nome+"  "+cognome);
-    painter->drawText(1250,830,800,200,Qt::AlignJustify | Qt::AlignJustify,anno);
-    painter->drawText(1900,830,800,200,Qt::AlignJustify | Qt::AlignJustify,classe+" "+sezione);
-    painter->drawText(800,1050,600,200,Qt::AlignJustify | Qt::AlignJustify,plesso);
+    painter->setFont(QFont(open,18,QFont::Bold,true));
+    painter->drawText(900,680,2000,500,Qt::AlignJustify | Qt::AlignJustify,nome+"  "+cognome);
+    painter->drawText(1200,885,800,500,Qt::AlignJustify | Qt::AlignJustify,anno);
+    painter->drawText(1900,885,800,200,Qt::AlignJustify | Qt::AlignJustify,classe+" "+sezione);
+    painter->drawText(800,1085,600,200,Qt::AlignJustify | Qt::AlignJustify,plesso);
     int ul = QFontDatabase::addApplicationFont(":/font/ITCBLKAD.TTF");
     QString ul_f = QFontDatabase::applicationFontFamilies(ul).at(0);
     painter->setFont(QFont(ul_f,20,true,true));
