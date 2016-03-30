@@ -1,33 +1,24 @@
-Per poter installare Squid-gui da sorgente bisogna 
+Per poter installare Diploma da sorgente bisogna 
 scaricare il programma all'indirizzo:
 
 
 
 Una volta scaricato aprire il terminale e dicitare i seguenti comandi
 
-tar -xvzf squid-gui-0.1.tar.gz
+tar -xvzf diploma-0.1.tar.gz
 
-cd squid-gui-0.1
+cd diploma-0.1
 
-Prima di installare Squid-Gui installare 
-squid e dansguardian
+Prima di installare Diploma 
 
 Dipendenze:
 qtBase-qt5
 qtbase-qt5-gui
-polkit-qt5
 
-**********************************************
-Se si compila con le qt4 lanciare i seguenti
-comandi
-**********************************************
-cmake -DMAKE_INSTALL_PREFIX=/usr -DWANT_QT4=ON 
-
-altrimenti per compilare con le Qt in versione 5
+Compilare con le Qt in versione 5
 eseguire il seguente comando
 
-cmake -DMAKE_INSTALL_PREFIX=/usr -DWANT_QT5=ON 
+cmake -DMAKE_INSTALL_PREFIX=/opt
 
 make-j5
 sudo make install
-
