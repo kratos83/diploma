@@ -28,7 +28,7 @@ void print::rettangolo_diploma_logo()
     QImage img(":/images/screen.png");
     painter->drawImage(target,img);
     //Logo stato
-    QRect logo(1280,100,150,150);
+    QRect logo(1230,100,150,150);
     QImage img_logo(":/images/logo_stato.png");
     painter->drawImage(logo,img_logo);
 
