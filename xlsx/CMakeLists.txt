@@ -11,9 +11,12 @@ SET( CMAKE_CXX_FLAGS  "-fexceptions -std=c++11" )
 ENDIF()
 
 IF(WIN32)
+set(Qt5Gui_PRIVATE_INCLUDE_DIRS
+        "${MINGW_PREFIX}/include/qt/QtGui/5.10.1"
+        "${MINGW_PREFIX}/include/qt/QtGui/5.10.1/QtGui"
+    )
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${Qt5Gui_INCLUDE_DIRS} 
-		    ${Qt5Core_INCLUDE_DIRS} "${MINGW_PREFIX}/include/qt5/QtGui/5.5.1/QtGui")
-
+		    ${Qt5Core_INCLUDE_DIRS} ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 ELSE()
 include_directories(${Qt5Widgets_INCLUDE_DIRS} ${Qt5Gui_INCLUDE_DIRS} 
 		    ${Qt5Gui_PRIVATE_INCLUDE_DIRS} ${Qt5Core_INCLUDE_DIRS})

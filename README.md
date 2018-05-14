@@ -1,4 +1,4 @@
-Diploma 0.1
+Diploma 0.3
 =========
 
 Software per la stampa dei diplomi 

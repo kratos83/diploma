@@ -5,9 +5,9 @@ scaricare il programma all'indirizzo:
 
 Una volta scaricato aprire il terminale e dicitare i seguenti comandi
 
-tar -xvzf diploma-0.1.tar.gz
+tar -xvzf diploma-0.3.tar.gz
 
-cd diploma-0.1
+cd diploma-0.3
 
 Prima di installare Diploma 
 

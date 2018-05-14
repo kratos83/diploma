@@ -20,5 +20,8 @@
         <file>font/OpenSans.ttf</file>
         <file>font/Avalon Medium.ttf</file>
 	<file>images/diploma.png</file>
+	<file>images/plesso.png</file>
+    <file>images/clean.png</file>
+    <file>images/select_all.png</file>
     </qresource>
 </RCC>

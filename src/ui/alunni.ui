@@ -6,15 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>668</width>
-    <height>514</height>
+    <width>1093</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
+   <item row="3" column="2">
+    <widget class="QPushButton" name="ins_alu">
+     <property name="text">
+      <string>Inserisci alunni</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../images.qrc">
+       <normaloff>:/images/system-users.png</normaloff>:/images/system-users.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="4">
+    <widget class="QPushButton" name="sel_tutti">
+     <property name="text">
+      <string>Seleziona tutti</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../images.qrc">
+       <normaloff>:/images/select_all.png</normaloff>:/images/select_all.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="8">
+    <widget class="QPushButton" name="chiudi">
+     <property name="text">
+      <string>Chiudi</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../images.qrc">
+       <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="6">
+    <widget class="QPushButton" name="stampa">
+     <property name="text">
+      <string>Stampa</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../images.qrc">
+       <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -27,29 +71,18 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="3">
-    <widget class="QPushButton" name="chiudi">
+   <item row="3" column="1">
+    <widget class="QPushButton" name="nuovo">
      <property name="text">
-      <string>Chiudi</string>
+      <string>Nuovo</string>
      </property>
      <property name="icon">
       <iconset resource="../images.qrc">
-       <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+       <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="stampa">
-     <property name="text">
-      <string>Stampa</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../images.qrc">
-       <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
+   <item row="3" column="3">
     <widget class="QPushButton" name="excel">
      <property name="text">
       <string>Importa file excel</string>
@@ -60,7 +93,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="0" colspan="4">
+   <item row="1" column="0" colspan="10">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string/>
@@ -76,32 +109,19 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2" colspan="3">
-       <widget class="QLineEdit" name="id">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1">
        <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Nome</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2" colspan="3">
-       <widget class="QLineEdit" name="nome"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Cognome</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="2" colspan="3">
-       <widget class="QLineEdit" name="cognome"/>
+      <item row="2" column="1">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Nome</string>
+        </property>
+       </widget>
       </item>
       <item row="3" column="1">
        <widget class="QLabel" name="label_4">
@@ -110,18 +130,12 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="3" colspan="2">
-       <widget class="QLineEdit" name="classe"/>
-      </item>
       <item row="4" column="1">
        <widget class="QLabel" name="label_5">
         <property name="text">
          <string>Sezione</string>
         </property>
        </widget>
-      </item>
-      <item row="4" column="3" colspan="2">
-       <widget class="QLineEdit" name="sezione"/>
       </item>
       <item row="5" column="1" colspan="2">
        <widget class="QLabel" name="label_6">
@@ -150,21 +164,175 @@
         </property>
        </spacer>
       </item>
-      <item row="6" column="3" colspan="2">
-       <widget class="QComboBox" name="plesso">
-        <property name="editable">
-         <bool>false</bool>
+      <item row="0" column="2" colspan="4">
+       <widget class="QLineEdit" name="id">
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="5" column="3" colspan="2">
+      <item row="1" column="2" colspan="4">
+       <widget class="QLineEdit" name="nome"/>
+      </item>
+      <item row="2" column="2" colspan="4">
+       <widget class="QLineEdit" name="cognome"/>
+      </item>
+      <item row="3" column="3" colspan="3">
+       <widget class="QLineEdit" name="classe"/>
+      </item>
+      <item row="4" column="3" colspan="3">
+       <widget class="QLineEdit" name="sezione"/>
+      </item>
+      <item row="5" column="3" colspan="3">
        <widget class="QComboBox" name="anno">
         <property name="editable">
-         <bool>false</bool>
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="3" colspan="3">
+       <widget class="QComboBox" name="plesso">
+        <property name="editable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
      </layout>
+    </widget>
+   </item>
+   <item row="3" column="9">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="10">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Seleziona componenti</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Seleziona classe</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboBox"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QPushButton" name="cerca">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>124</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Cerca</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../images.qrc">
+            <normaloff>:/images/document-preview.png</normaloff>:/images/document-preview.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>Seleziona anno</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Seleziona plesso</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QComboBox" name="comboBox_2"/>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="cancella">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Cancella ricerca</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../images.qrc">
+            <normaloff>:/images/edit-delete.png</normaloff>:/images/edit-delete.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboBox_3"/>
+        </item>
+        <item row="1" column="3">
+         <widget class="QComboBox" name="comboBox_4"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Seleziona sezione</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="5">
+    <widget class="QPushButton" name="del_tutti">
+     <property name="text">
+      <string>Deseleziona tutti</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../images.qrc">
+       <normaloff>:/images/clean.png</normaloff>:/images/clean.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="10">
+    <widget class="QLabel" name="labelInviata">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="7">
+    <widget class="QPushButton" name="stampa_tutti">
+     <property name="text">
+      <string>Stampa tutti</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../images.qrc">
+       <normaloff>:/images/document-print.png</normaloff>:/images/document-print.png</iconset>
+     </property>
     </widget>
    </item>
   </layout>
@@ -177,8 +345,10 @@
   <tabstop>sezione</tabstop>
   <tabstop>anno</tabstop>
   <tabstop>plesso</tabstop>
-  <tabstop>stampa</tabstop>
+  <tabstop>nuovo</tabstop>
+  <tabstop>ins_alu</tabstop>
   <tabstop>excel</tabstop>
+  <tabstop>stampa</tabstop>
   <tabstop>chiudi</tabstop>
   <tabstop>tableView</tabstop>
  </tabstops>
