@@ -245,6 +245,8 @@ private:
      * \brief <b>QAction *about;</b>
      */
     *about;
+    
+    SettingsManager *manager;
 };
 
 #endif // MAINWINDOW_H

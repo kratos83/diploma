@@ -44,7 +44,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    manager(new SettingsManager)
 {
     ui->setupUi(this);
     connect(ui->actionEsci,SIGNAL(triggered(bool)),qApp,SLOT(quit()));
@@ -100,11 +101,11 @@ void MainWindow::leggi_settaggi()
     int year = QDate::currentDate().year();
     QString data = QString::number(year)+"/"+QString::number(year+1);
     QSqlQuery query,query_ins;
-    query.prepare("select count(id)+1,anno_ins from anno");
+    query.prepare("select count(id)+1,anno_ins from anno where anno_ins='"+manager->generalValue("Scuola/Anno_scolastico",QVariant()).toString()+"'");
     query.exec();
     if(query.next())
     {
-        if(query.value(1).toString() < data  || year < QDate::currentDate().year())
+        if(query.value(1).toString() < data  && year < QDate::currentDate().year())
         {
             query_ins.prepare("INSERT INTO anno VALUES('"+query.value(0).toString()+"','"+QString::number(year)+"/"+QString::number(year+1)+"')");
             if(query_ins.exec())
@@ -113,11 +114,12 @@ void MainWindow::leggi_settaggi()
                 qDebug() << "Inserimento fallito(table::anno): " << query_ins.lastError().text();
         }
     }
+    manager->setGeneralValue("Scuola/Anno_scolastico",QString::number(year-1)+"/"+QString::number(year));
 }
 
 void MainWindow::informazioni()
 {
-    QMessageBox::information(this,"About","Software per la \nstampa degli auguri sui diplomi...\nVersione 0.4\n\n\n(C) 2006-2018. Codelinsoft.");
+    QMessageBox::information(this,"About","Software per la \nstampa degli auguri sui diplomi...\nVersione 0.5\n\n\n(C) 2006-2019. Codelinsoft.");
 }
 
 MainWindow::~MainWindow()

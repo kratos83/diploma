@@ -51,7 +51,8 @@ alunni *m_alunni = 0;
 
 alunni::alunni(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::alunni)
+    ui(new Ui::alunni),
+    manager(new SettingsManager)
 {
     m_alunni = this;
     ui->setupUi(this);
@@ -217,14 +218,15 @@ void alunni::comboAnno()
 {
     ui->comboBox_3->clear();
     QSqlQuery query;
-    QStringList m_anno;
-    query.prepare("select * from anno");
+    QStringList M_anno;
+    QString data = manager->generalValue("Scuola/Anno_scolastico",QVariant()).toString();
+    query.prepare("select * from anno where anno_ins='"+manager->generalValue("Scuola/Anno_scolastico",QVariant()).toString()+"'");
     query.exec();
     while(query.next())
     {
-        m_anno << query.value(1).toString();
+            M_anno << query.value(1).toString();
     }
-    ui->comboBox_3->addItems(m_anno);
+    ui->comboBox_3->addItems(M_anno);
 }
 
 void alunni::comboClasse()

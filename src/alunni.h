@@ -52,6 +52,8 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintPreviewDialog>
 #include "InvioStampaDiplomaThread.h"
+#include "settingsmanager.h"
+#include "anno.h"
 
 /*!
  * \brief namespace Ui{}
@@ -258,6 +260,8 @@ private:
     
     InvioStampaDiplomaThread *m_diploma;
     QString m_id,m_alunno,m_IdThread,m_testo;
+    SettingsManager *manager;
+    anno *m_anno;
 signals:
      void inviaThread(QString _id);
 };
